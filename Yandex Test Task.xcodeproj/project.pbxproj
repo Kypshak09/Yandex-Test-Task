@@ -7,20 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252C43D6298789B60030028B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 252C43D5298789B60030028B /* SnapKit-Dynamic */; };
+		252C43D929878B740030028B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C43D829878B740030028B /* Request.swift */; };
+		252C43DC29878B990030028B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 252C43DB29878B990030028B /* Alamofire */; };
+		252C43DF298795060030028B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C43DE298795060030028B /* DataModel.swift */; };
+		252C43E12987977A0030028B /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C43E02987977A0030028B /* StockCell.swift */; };
+		252C43E32987C3980030028B /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C43E22987C3980030028B /* PriceModel.swift */; };
+		252C43E52987C3A60030028B /* RequestPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C43E42987C3A60030028B /* RequestPrice.swift */; };
 		25E6C8902982E48E00B60F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E6C88F2982E48E00B60F06 /* AppDelegate.swift */; };
 		25E6C8922982E48E00B60F06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E6C8912982E48E00B60F06 /* SceneDelegate.swift */; };
 		25E6C8942982E48E00B60F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E6C8932982E48E00B60F06 /* ViewController.swift */; };
-		25E6C8972982E48E00B60F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E6C8952982E48E00B60F06 /* Main.storyboard */; };
 		25E6C8992982E49300B60F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E6C8982982E49300B60F06 /* Assets.xcassets */; };
 		25E6C89C2982E49300B60F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E6C89A2982E49300B60F06 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		252C43D829878B740030028B /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		252C43DE298795060030028B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		252C43E02987977A0030028B /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		252C43E22987C3980030028B /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
+		252C43E42987C3A60030028B /* RequestPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPrice.swift; sourceTree = "<group>"; };
 		25E6C88C2982E48E00B60F06 /* Yandex Test Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yandex Test Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E6C88F2982E48E00B60F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E6C8912982E48E00B60F06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25E6C8932982E48E00B60F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		25E6C8962982E48E00B60F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25E6C8982982E49300B60F06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25E6C89B2982E49300B60F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25E6C89D2982E49300B60F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,12 +41,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252C43D6298789B60030028B /* SnapKit-Dynamic in Frameworks */,
+				252C43DC29878B990030028B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252C43D729878B5C0030028B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				252C43D829878B740030028B /* Request.swift */,
+				252C43DE298795060030028B /* DataModel.swift */,
+				252C43E22987C3980030028B /* PriceModel.swift */,
+				252C43E42987C3A60030028B /* RequestPrice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		252C43DD29878BB10030028B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25E6C8932982E48E00B60F06 /* ViewController.swift */,
+				252C43E02987977A0030028B /* StockCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		25E6C8832982E48E00B60F06 = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +90,8 @@
 			children = (
 				25E6C88F2982E48E00B60F06 /* AppDelegate.swift */,
 				25E6C8912982E48E00B60F06 /* SceneDelegate.swift */,
-				25E6C8932982E48E00B60F06 /* ViewController.swift */,
-				25E6C8952982E48E00B60F06 /* Main.storyboard */,
+				252C43D729878B5C0030028B /* Model */,
+				252C43DD29878BB10030028B /* View */,
 				25E6C8982982E49300B60F06 /* Assets.xcassets */,
 				25E6C89A2982E49300B60F06 /* LaunchScreen.storyboard */,
 				25E6C89D2982E49300B60F06 /* Info.plist */,
@@ -83,6 +115,10 @@
 			dependencies = (
 			);
 			name = "Yandex Test Task";
+			packageProductDependencies = (
+				252C43D5298789B60030028B /* SnapKit-Dynamic */,
+				252C43DB29878B990030028B /* Alamofire */,
+			);
 			productName = "Yandex Test Task";
 			productReference = 25E6C88C2982E48E00B60F06 /* Yandex Test Task.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +147,10 @@
 				Base,
 			);
 			mainGroup = 25E6C8832982E48E00B60F06;
+			packageReferences = (
+				252C43D4298789B60030028B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				252C43DA29878B990030028B /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 25E6C88D2982E48E00B60F06 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +167,6 @@
 			files = (
 				25E6C89C2982E49300B60F06 /* LaunchScreen.storyboard in Resources */,
 				25E6C8992982E49300B60F06 /* Assets.xcassets in Resources */,
-				25E6C8972982E48E00B60F06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,22 +178,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				25E6C8942982E48E00B60F06 /* ViewController.swift in Sources */,
+				252C43E52987C3A60030028B /* RequestPrice.swift in Sources */,
+				252C43D929878B740030028B /* Request.swift in Sources */,
+				252C43E12987977A0030028B /* StockCell.swift in Sources */,
 				25E6C8902982E48E00B60F06 /* AppDelegate.swift in Sources */,
+				252C43E32987C3980030028B /* PriceModel.swift in Sources */,
 				25E6C8922982E48E00B60F06 /* SceneDelegate.swift in Sources */,
+				252C43DF298795060030028B /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		25E6C8952982E48E00B60F06 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				25E6C8962982E48E00B60F06 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		25E6C89A2982E49300B60F06 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +328,6 @@
 				INFOPLIST_FILE = "Yandex Test Task/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +355,6 @@
 				INFOPLIST_FILE = "Yandex Test Task/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +392,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		252C43D4298789B60030028B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		252C43DA29878B990030028B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		252C43D5298789B60030028B /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 252C43D4298789B60030028B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		252C43DB29878B990030028B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 252C43DA29878B990030028B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 25E6C8842982E48E00B60F06 /* Project object */;
 }
