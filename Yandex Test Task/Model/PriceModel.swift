@@ -8,7 +8,7 @@
 import Foundation
 
 struct PriceModel: Codable {
-    let responce: [Price]
+    let response: [Price]
 }
 struct Price: Codable {
     let c: String

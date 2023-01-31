@@ -36,6 +36,19 @@ class StockCell: UITableViewCell {
         return label
     }()
     
+    let changePrice: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Montserrat-Bold", size: 18)
+        return label
+    }()
+    
+    let buttonHeart: UIButton = {
+        let button = UIButton()
+        button.tintColor = .systemGray3
+        button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        return button
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -44,7 +57,8 @@ class StockCell: UITableViewCell {
     func configure(dataModelName: Stocks, dataModelPrice: Price) {
         nameOfCompany.text = dataModelName.name
         shortName.text = dataModelName.short_name
-        currentPrice.text = dataModelPrice.c
+        currentPrice.text = "\(dataModelPrice.c) $"
+        changePrice.text = "\(dataModelPrice.ch) $ (\(dataModelPrice.cp))"
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -78,6 +92,22 @@ class StockCell: UITableViewCell {
             make.leading.equalToSuperview().offset(223)
             make.trailing.equalToSuperview().offset(17)
             make.bottom.equalToSuperview().offset(-30)
+        }
+        
+        customView.addSubview(changePrice)
+        changePrice.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(38)
+            make.leading.equalToSuperview().offset(241)
+            make.trailing.equalToSuperview().offset(12)
+            make.bottom.equalToSuperview().offset(-14)
+        }
+        
+        customView.addSubview(buttonHeart)
+        buttonHeart.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(120)
+            make.top.equalToSuperview().offset(15)
+            make.bottom.equalToSuperview().offset(-35)
+            
         }
     }
 

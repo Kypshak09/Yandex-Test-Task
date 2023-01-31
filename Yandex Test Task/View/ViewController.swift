@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     var dataName = [Stocks]()
     var dataPrice = [Price]()
+    var filteredData = [Stocks]()
     
     let identifier = "identifier"
     
@@ -25,25 +26,23 @@ class ViewController: UIViewController {
         return table
     }()
     
-    let allListButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Stocks", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
-    
-    let favouriteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Favourite", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
-    
     let searchBar: UISearchBar = {
         let search = UISearchBar()
+        search.tintColor = .black
+        search.layer.cornerRadius = 20
+        search.clipsToBounds = true
         search.placeholder = "Find company or ticker"
+        search.searchBarStyle = .minimal
+        search.frame = CGRect(x: 0, y: 0, width: 350, height: 60)
         return search
     }()
+    
+    @objc func moveToFavourite() {
+       present(FavouriteViewController(), animated: true)
+        print("touched")
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,49 +52,42 @@ class ViewController: UIViewController {
         table.separatorStyle = .none
         table.register(StockCell.self, forCellReuseIdentifier: identifier)
         navigationItem.hidesSearchBarWhenScrolling = true
+        searchBar.delegate = self
+        view.addSubview(searchBar)
+        table.tableHeaderView = searchBar
         
         setConstraints()
         
         request.getData(urlStringName) { apiData in
             self.dataName = apiData.response
+            self.filteredData = self.dataName
 //            print(self.dataName)
             self.table.reloadData()
         }
         
         requesrPrice.getData(urlStringPrice) { apiData in
-            self.dataPrice = apiData.responce
-            print(self.dataPrice)
+            self.dataPrice = apiData.response
+//            print(self.dataPrice)
             self.table.reloadData()
         }
-        
-        
-        
     }
     
+    
+    
     func setConstraints() {
-        view.addSubview(searchBar)
-        searchBar.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(70)
-            make.width.equalTo(400)
-        }
-        
-        view.addSubview(allListButton)
-        allListButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(100)
-            make.centerY.equalTo(searchBar.snp_bottomMargin).offset(100)
-        }
-        view.addSubview(favouriteButton)
-        favouriteButton.snp.makeConstraints { make in
-            make.leading.equalTo(allListButton.snp_trailingMargin).offset(100)
-            make.centerY.equalTo(searchBar.snp_bottomMargin).offset(100)
-        }
+//        view.addSubview(searchBar)
+//        searchBar.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(100)
+//            make.centerX.equalToSuperview()
+//            make.height.equalTo(60)
+//            make.width.equalTo(400)
+//        }
         
         view.addSubview(table)
         table.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(favouriteButton.snp_bottomMargin).offset(100)
+//            make.top.equalTo(searchBar.snp_bottomMargin).offset(20)
+            make.top.equalToSuperview().offset(100)
             make.bottom.equalToSuperview()
             make.width.equalToSuperview()
         }
@@ -109,7 +101,7 @@ class ViewController: UIViewController {
 //MARK: - table view methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataName.count
+        return filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -119,7 +111,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.customView.backgroundColor = .white
         }
-        cell.configure(dataModelName: dataName[indexPath.row], dataModelPrice: dataPrice[indexPath.row])
+        
+        cell.configure(dataModelName: filteredData[indexPath.row], dataModelPrice: dataPrice[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
@@ -132,4 +125,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
     
+}
+// MARK: - UISearchBar
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = dataName.filter {
+            $0.name.lowercased().contains(searchText.lowercased())
+            }
+            table.reloadData()
+    }
 }

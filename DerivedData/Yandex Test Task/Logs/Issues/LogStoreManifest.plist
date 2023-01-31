@@ -34,6 +34,34 @@
 			<key>uniqueIdentifier</key>
 			<string>4B40EAD4-78E3-462A-B977-4C8357892895</string>
 		</dict>
+		<key>7AF1B728-3B3D-4E58-BB45-AD94060EA4F2</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
+			<key>fileName</key>
+			<string>7AF1B728-3B3D-4E58-BB45-AD94060EA4F2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Yandex_Test_Task-bbqienhsgpwdhaehylxuwhxuqlft</string>
+			<key>timeStartedRecording</key>
+			<real>696834149.71865499</real>
+			<key>timeStoppedRecording</key>
+			<real>696834151.07994199</real>
+			<key>title</key>
+			<string>Build target Yandex Test Task</string>
+			<key>uniqueIdentifier</key>
+			<string>7AF1B728-3B3D-4E58-BB45-AD94060EA4F2</string>
+		</dict>
 		<key>87743104-DACC-4671-8ABB-B2F218A40ED2</key>
 		<dict>
 			<key>className</key>
@@ -89,34 +117,6 @@
 			<string>Build target Alamofire</string>
 			<key>uniqueIdentifier</key>
 			<string>AFD86763-A6DD-4755-AE02-C6E86858214A</string>
-		</dict>
-		<key>BB3E0CE3-AA08-4F53-A6F5-8558182FFD0D</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
-			<key>fileName</key>
-			<string>BB3E0CE3-AA08-4F53-A6F5-8558182FFD0D.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>Yandex_Test_Task-bbqienhsgpwdhaehylxuwhxuqlft</string>
-			<key>timeStartedRecording</key>
-			<real>696764074.37864602</real>
-			<key>timeStoppedRecording</key>
-			<real>696764076.09125495</real>
-			<key>title</key>
-			<string>Build target Yandex Test Task</string>
-			<key>uniqueIdentifier</key>
-			<string>BB3E0CE3-AA08-4F53-A6F5-8558182FFD0D</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
