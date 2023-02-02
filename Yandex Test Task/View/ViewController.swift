@@ -7,17 +7,14 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class ViewController: UIViewController {
-
-    var request = Requests()
-    var requesrPrice = RequestsPrice()
-    let urlStringName = "https://fcsapi.com/api-v3/stock/list?country=United-states&access_key=cyTMKbSaKAPIzKyPlytsVOntW"
-    let urlStringPrice = "https://fcsapi.com/api-v3/stock/latest?indices_id=1&access_key=cyTMKbSaKAPIzKyPlytsVOntW"
     
-    var dataName = [Stocks]()
-    var dataPrice = [Price]()
-    var filteredData = [Stocks]()
+    let companyRequest = CompanyRequest()
+    let symbolRequest = SymbolRequest()
+    var dataName = [SymbolData]()
+    var companyData = [CompanyData]()
     
     let identifier = "identifier"
     
@@ -37,13 +34,6 @@ class ViewController: UIViewController {
         return search
     }()
     
-    @objc func moveToFavourite() {
-       present(FavouriteViewController(), animated: true)
-        print("touched")
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -58,50 +48,32 @@ class ViewController: UIViewController {
         
         setConstraints()
         
-        request.getData(urlStringName) { apiData in
-            self.dataName = apiData.response
-            self.filteredData = self.dataName
-//            print(self.dataName)
-            self.table.reloadData()
-        }
-        
-        requesrPrice.getData(urlStringPrice) { apiData in
-            self.dataPrice = apiData.response
-//            print(self.dataPrice)
-            self.table.reloadData()
+        symbolRequest.getSymbols { symbolData in
+            if let symbolData = symbolData {
+                self.dataName = symbolData
+                self.table.reloadData()
+            } else {
+                print("fail lox hahahah")
+            }
         }
     }
-    
-    
-    
+
     func setConstraints() {
-//        view.addSubview(searchBar)
-//        searchBar.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(100)
-//            make.centerX.equalToSuperview()
-//            make.height.equalTo(60)
-//            make.width.equalTo(400)
-//        }
-        
         view.addSubview(table)
         table.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-//            make.top.equalTo(searchBar.snp_bottomMargin).offset(20)
             make.top.equalToSuperview().offset(100)
             make.bottom.equalToSuperview()
             make.width.equalToSuperview()
         }
-        
     }
-
-
 }
 
 
 //MARK: - table view methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+        return dataName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,8 +83,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.customView.backgroundColor = .white
         }
-        
-        cell.configure(dataModelName: filteredData[indexPath.row], dataModelPrice: dataPrice[indexPath.row])
+        cell.configure(dataModelName: dataName[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
@@ -129,9 +100,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UISearchBar
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = dataName.filter {
-            $0.name.lowercased().contains(searchText.lowercased())
-            }
-            table.reloadData()
+//        filteredData = dataName.filter {
+//            $0.name.lowercased().contains(searchText.lowercased())
+//            }
+//            table.reloadData()
     }
 }

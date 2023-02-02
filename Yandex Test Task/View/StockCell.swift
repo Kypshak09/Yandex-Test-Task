@@ -54,12 +54,16 @@ class StockCell: UITableViewCell {
         
     }
 
-    func configure(dataModelName: Stocks, dataModelPrice: Price) {
-        nameOfCompany.text = dataModelName.name
-        shortName.text = dataModelName.short_name
-        currentPrice.text = "\(dataModelPrice.c) $"
-        changePrice.text = "\(dataModelPrice.ch) $ (\(dataModelPrice.cp))"
+    func configure(dataModelName: SymbolData) {
+        shortName.text = dataModelName.symbol
     }
+    
+//    func configure(dataModelName: Stocks, dataModelPrice: Price) {
+//        nameOfCompany.text = dataModelName.name
+//        shortName.text = dataModelName.short_name
+//        currentPrice.text = "\(dataModelPrice.c) $"
+//        changePrice.text = "\(dataModelPrice.ch) $ (\(dataModelPrice.cp))"
+//    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -104,7 +108,7 @@ class StockCell: UITableViewCell {
         
         customView.addSubview(buttonHeart)
         buttonHeart.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(120)
+            make.leading.equalToSuperview().offset(150)
             make.top.equalToSuperview().offset(15)
             make.bottom.equalToSuperview().offset(-35)
             
