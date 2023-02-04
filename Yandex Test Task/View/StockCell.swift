@@ -54,16 +54,13 @@ class StockCell: UITableViewCell {
         
     }
 
-    func configure(dataModelName: SymbolData) {
-        shortName.text = dataModelName.symbol
+    func configure(symbolData: SymbolData, companyData: CompanyData,priceData: [PriceData],index: IndexPath) {
+        shortName.text = symbolData.symbolNames[index.row]
+        nameOfCompany.text = companyData.companyNames[index.row]
+        currentPrice.text = String("\(priceData[index.row].c) $")
+        changePrice.text = String("\(priceData[index.row].d)$ (\(priceData[index.row].dp))")
     }
     
-//    func configure(dataModelName: Stocks, dataModelPrice: Price) {
-//        nameOfCompany.text = dataModelName.name
-//        shortName.text = dataModelName.short_name
-//        currentPrice.text = "\(dataModelPrice.c) $"
-//        changePrice.text = "\(dataModelPrice.ch) $ (\(dataModelPrice.cp))"
-//    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

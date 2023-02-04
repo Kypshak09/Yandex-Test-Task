@@ -11,10 +11,10 @@ import Alamofire
 
 class ViewController: UIViewController {
     
-    let companyRequest = CompanyRequest()
-    let symbolRequest = SymbolRequest()
-    var dataName = [SymbolData]()
-    var companyData = [CompanyData]()
+    let company = CompanyData()
+    let symbol = SymbolData()
+    var priceData = [PriceData]()
+    let priceRequest = PriceRequest()
     
     let identifier = "identifier"
     
@@ -48,14 +48,13 @@ class ViewController: UIViewController {
         
         setConstraints()
         
-        symbolRequest.getSymbols { symbolData in
-            if let symbolData = symbolData {
-                self.dataName = symbolData
+        for symbol in SymbolData().symbolNames {
+            priceRequest.getPrice(symbol: symbol) { priceData in
+                self.priceData = priceData
                 self.table.reloadData()
-            } else {
-                print("fail lox hahahah")
             }
         }
+        
     }
 
     func setConstraints() {
@@ -73,7 +72,7 @@ class ViewController: UIViewController {
 //MARK: - table view methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataName.count
+        return priceData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +82,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.customView.backgroundColor = .white
         }
-        cell.configure(dataModelName: dataName[indexPath.row])
+        cell.configure(symbolData: symbol, companyData: company,priceData: priceData, index: indexPath)
         cell.selectionStyle = .none
         return cell
     }

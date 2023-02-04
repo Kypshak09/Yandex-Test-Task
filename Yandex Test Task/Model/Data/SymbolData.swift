@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct SymbolData: Codable {
-    let symbol: String
+struct SymbolData {
+    let symbolNames = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "NVDA", "META", "V", "JPM", "WMT", "MA", "PG", "BAC", "KO", "PFE"]
 }
