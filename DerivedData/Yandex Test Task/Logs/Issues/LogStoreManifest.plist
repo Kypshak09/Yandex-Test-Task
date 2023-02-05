@@ -90,7 +90,7 @@
 			<key>uniqueIdentifier</key>
 			<string>AFD86763-A6DD-4755-AE02-C6E86858214A</string>
 		</dict>
-		<key>E556320F-BBFB-46AD-AC57-5740327FF4E0</key>
+		<key>EC333749-9EC6-44CA-921E-A10F4C7B9F89</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -99,24 +99,24 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>E556320F-BBFB-46AD-AC57-5740327FF4E0.xcactivitylog</string>
+			<string>EC333749-9EC6-44CA-921E-A10F4C7B9F89.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>S</string>
+				<string>W</string>
 			</dict>
 			<key>signature</key>
 			<string>Yandex_Test_Task-bbqienhsgpwdhaehylxuwhxuqlft</string>
 			<key>timeStartedRecording</key>
-			<real>697224870.51613104</real>
+			<real>697288711.52055001</real>
 			<key>timeStoppedRecording</key>
-			<real>697224872.32847905</real>
+			<real>697288712.34438598</real>
 			<key>title</key>
 			<string>Build target Yandex Test Task</string>
 			<key>uniqueIdentifier</key>
-			<string>E556320F-BBFB-46AD-AC57-5740327FF4E0</string>
+			<string>EC333749-9EC6-44CA-921E-A10F4C7B9F89</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

@@ -46,8 +46,18 @@ class StockCell: UITableViewCell {
         let button = UIButton()
         button.tintColor = .systemGray3
         button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        button.addTarget(self, action: #selector(buttonSelected), for: .touchUpInside)
         return button
     }()
+    
+    @objc func buttonSelected() {
+        if buttonHeart.tintColor == .systemGray3 {
+            buttonHeart.tintColor = .systemYellow
+        } else {
+            buttonHeart.tintColor = .systemGray3
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,8 +67,10 @@ class StockCell: UITableViewCell {
     func configure(symbolData: SymbolData, companyData: CompanyData,priceData: [PriceData],index: IndexPath) {
         shortName.text = symbolData.symbolNames[index.row]
         nameOfCompany.text = companyData.companyNames[index.row]
-        currentPrice.text = String("\(priceData[index.row].c) $")
-        changePrice.text = String("\(priceData[index.row].d)$ (\(priceData[index.row].dp))")
+        if priceData.count > index.row {
+            currentPrice.text = String("\(priceData[index.row].c)$")
+            changePrice.text = String("\(priceData[index.row].d)$(\(priceData[index.row].dp)%)")
+        }
     }
     
     

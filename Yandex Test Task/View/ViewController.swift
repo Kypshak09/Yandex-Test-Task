@@ -48,13 +48,12 @@ class ViewController: UIViewController {
         
         setConstraints()
         
-        for symbol in SymbolData().symbolNames {
-            priceRequest.getPrice(symbol: symbol) { priceData in
-                self.priceData = priceData
-                self.table.reloadData()
+            for symbol in SymbolData().symbolNames {
+                priceRequest.getPrice(symbol: symbol) { priceData in
+                    self.priceData.append(contentsOf: priceData)
+                    self.table.reloadData()
+                }
             }
-        }
-        
     }
 
     func setConstraints() {
@@ -72,7 +71,7 @@ class ViewController: UIViewController {
 //MARK: - table view methods
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return priceData.count
+        return company.companyNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,7 +98,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UISearchBar
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        filteredData = dataName.filter {
+//        filteredData = com.filter {
 //            $0.name.lowercased().contains(searchText.lowercased())
 //            }
 //            table.reloadData()
